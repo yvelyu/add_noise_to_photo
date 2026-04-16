@@ -1,0 +1,51 @@
+<html>
+
+<head>
+    <title>Шумы на картинку</title>
+</head>
+
+<body>
+    <h1>Добавить шум на картинку</h1>
+
+    <form method="post" enctype="multipart/form-data">
+        <b>Картинка:</b>
+        <input type="file" name="image" required><br><br>
+
+        <b>Какой шум:</b>
+        <select name="noise_type">
+            <option value="gaussian">Гаусса</option>
+            <option value="uniform">Равномерное</option>
+            <option value="chisquare">Хи-квадрат</option>
+            <option value="exponential">Экспоненциальное</option>
+            <option value="gamma">Гамма</option>
+            <option value="weibull">Вейбулла</option>
+        </select><br><br>
+
+        <b>Сила:</b>
+        <input type="number" name="strength" value="100"><br><br>
+
+        <b>k (для хи-квадрат, гамма и вейбулла):</b>
+        <input type="number" name="k" value="1"><br><br>
+
+        <input type="submit" value="Обработать картинку">
+    </form>
+
+    {% if error_message %}
+    <div style="color:red; font-size:20px;"><b>Ошибка:</b> {{ error_message }}</div>
+    {% endif %}
+
+    {% if original_path and processed_path %}
+    <hr>
+    <h2>Исходник:</h2>
+    <img src="/{{ original_path }}" width="500">
+
+    <h2>Обработано:</h2>
+    <img src="/{{ processed_path }}" width="500">
+    {% endif %}
+    <h2>Гистограмма</h2>
+    {% if histogram_path %}
+    <img src="/{{ histogram_path }}" width="500">
+    {% endif %}
+</body>
+
+</html>
