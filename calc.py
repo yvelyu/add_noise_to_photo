@@ -9,7 +9,7 @@ CSV_PATH = "metrics.csv"
 ALLOWED_EXTENSIONS = {".png", ".jpg", ".jpeg"}
 
 KNOWN_FILTERS = {
-    "medium_noise_filter",
+    "median_filter",
     "selfmade_noise_filter",
     "bilaterial_filter"
 }
