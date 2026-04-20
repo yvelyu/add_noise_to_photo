@@ -46,6 +46,18 @@
     {% if histogram_path %}
     <img src="/{{ histogram_path }}" width="500">
     {% endif %}
+    <h2>selfmade_Фильтр</h2>
+    {% if filtred_path %}
+    <img src="/{{ filtred_path }}" width="500">
+    {% endif %}
+    <h2>Медианный фильтр</h2>
+    {% if median_path %}
+    <img src="/{{ median_path }}" width="500">
+    {% endif %}
+    <h2>Билатеральный фильтр</h2>
+    {% if bilaterial_path %}
+    <img src="/{{ bilaterial_path }}" width="500">
+    {% endif %}
 </body>
 
 </html>
